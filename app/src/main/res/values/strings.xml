@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ConservationMoney</string>
+    <string name="parent_topname">节流省钱小助手</string>
+    <string name="add_record">新增记账</string>
+    <string name="main_mid_text">量入为出，适度消费！</string>
+    <string name="add_hint_typename">请输入收入记账的类别</string>
+    <string name="add_hint_data">请输入收入记账的数值</string>
 </resources>

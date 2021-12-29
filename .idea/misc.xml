@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android project/ConservationMoney/app/src/main/res/layout/account_add.xml" value="0.24947916666666667" />
+        <entry key="..\:/Android project/ConservationMoney/app/src/main/res/layout/activity_main.xml" value="0.15942028985507245" />
+        <entry key="..\:/Android project/ConservationMoney/app/src/main/res/layout/list_every_row.xml" value="0.24947916666666667" />
+        <entry key="..\:/Android project/ConservationMoney/app/src/main/res/layout/listview_every_row.xml" value="0.26621847886098404" />
+        <entry key="..\:/Android project/ConservationMoney/app/src/main/res/layout/money_total.xml" value="0.24947916666666667" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
