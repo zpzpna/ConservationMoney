@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     //构造一个空的记账列表用于下面初始化时塞入数据库数据以及返回给我们写的适配器来作为数据源
     val dbHelper = MyDatabaseHelper(this, "AccountTable.db", 1)
 
-    //用来标记转入登陆界面次数，只能转入一次，不然即使输入密码也会疯狂转入登录
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -152,11 +152,18 @@ class MainActivity : AppCompatActivity() {
             //及时删除此时列表记录，不然只有下一次启动可以消失，而不能点击按钮立即消失
             AccountList.clear()
             Account_adapter.notifyDataSetChanged()
+            Toast.makeText(this,"删除成功",Toast.LENGTH_SHORT).show()
         }
 
-        //删除单个记录，这里依旧用对话框，复用一部分上面的代码
-
+        //跳转到统计界面
+        val intent_count = Intent(this,ClassifyActivity::class.java)
+        val transfer_button:Button = findViewById(R.id.transer_count)
+        transfer_button.setOnClickListener {
+            startActivity(intent_count)
+            Toast.makeText(this,"进入统计界面",Toast.LENGTH_SHORT).show()
+        }
     }
+
     fun initrowtest(){
         //测试自己写的适配器，随便手动加入数据，以我吃的南财食堂为例子
         AccountList.add(AccountList("南财食堂瓦香鸡","2021-12-10", "11"))
@@ -164,6 +171,7 @@ class MainActivity : AppCompatActivity() {
         AccountList.add(AccountList("南财食堂炒饭","2021-12-11", "10"))
         AccountList.add(AccountList("南财食堂炒面","2021-12-11", "10"))
     }
+
     fun initrowData() {
         //和上面测试适配器手动加入的不同，这个从数据库我已经保存的数据进行读取
         //不然即使这一次添加数据，下次启动程序还是不显示已有的数据

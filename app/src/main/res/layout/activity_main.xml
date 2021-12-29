@@ -7,23 +7,18 @@
     tools:ignore="ExtraText"
     android:background="@color/skyblue">
 
-    <RelativeLayout
+
+    <TextView
         android:id="@+id/main_head_layout"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/white">
-
-        <TextView
-            android:id="@+id/main_head_text"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:text="@string/parent_topname"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="@string/parent_topname"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/white"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_body_layout"
@@ -63,7 +58,16 @@
         android:background="@color/add_delete_record"
         android:text="@string/delete_all_record"
         android:textColor="@color/textblue" />
-
+    <Button
+        android:id="@+id/transer_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/delete_all_record"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        android:text="@string/count_transfer"
+        android:textColor="@color/textblue" />
     <TextView
         android:id="@+id/main_mid_text"
         android:layout_width="match_parent"
