@@ -14,13 +14,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         />
-
-    <EditText
+<!--下面本来是和时间选择分别选择，但我放弃了，因为这样太模糊了
+ 我直接一开始先时间统计，统计完后再分别选择时间和类别统计-->
+   <!-- <EditText
         android:layout_margin="5dp"
-        android:id="@+id/classify_count_choose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/time_count_choose"
         android:hint="@string/classify_count_choose_hint"
-        android:textStyle="bold"/>
+        android:textStyle="bold"/>-->
 </RelativeLayout>

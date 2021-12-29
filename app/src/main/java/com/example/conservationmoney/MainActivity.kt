@@ -177,20 +177,22 @@ class MainActivity : AppCompatActivity() {
         //不然即使这一次添加数据，下次启动程序还是不显示已有的数据
 
         val db = dbHelper.writableDatabase
-        val cursor: Cursor? =db.query("list", null, null, null, null, null, "data ASC")
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
+
+        val cursor2: Cursor? =db.query("list", null, null, null, null, null, "data ASC")
+        if (cursor2 != null) {
+            if (cursor2.moveToFirst()) {
                 do {
-                    val AccountList_dbsorce = AccountList(cursor.getString(cursor.getColumnIndexOrThrow("typename")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("date")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("data")))
+                    val AccountList_dbsorce = AccountList(cursor2.getString(cursor2.getColumnIndexOrThrow("typename")),
+                        cursor2.getString(cursor2.getColumnIndexOrThrow("date")),
+                        cursor2.getString(cursor2.getColumnIndexOrThrow("data")))
 
                     AccountList.add(AccountList_dbsorce)
-                } while (cursor.moveToNext())
+                } while (cursor2.moveToNext())
             }
-            cursor.close()
+            cursor2.close()
         }
     }
+
 }
 
 
