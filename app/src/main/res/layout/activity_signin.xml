@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<ImageView
+
+    android:id="@+id/user_pic"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:layout_centerHorizontal="true"
+    android:layout_height="200dp"
+    android:layout_width="200dp"
+    android:src="@mipmap/signinpic"
+    tools:ignore="ContentDescription" />
+
+    <EditText
+
+
+        android:id="@+id/input_name"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_below="@id/user_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/signin_name"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:importantForAutofill="no" />
+
+    <EditText
+
+        android:id="@+id/input_key"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_name"
+        android:hint="@string/signin_key"
+        android:textSize="20sp"
+        android:gravity="center"
+        tools:ignore="Autofill" />
+    <Button
+        android:id="@+id/signin_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:text="@string/signin_button"
+        android:textSize="20sp"
+        android:layout_below="@id/input_key"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

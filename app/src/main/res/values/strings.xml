@@ -7,4 +7,8 @@
     <string name="add_hint_typename">请输入记账的类别</string>
     <string name="add_hint_data">请输入记账的数值</string>
     <string name="delete_all_record">全部记录删除</string>
+    <string name="signin_name">用户名</string>
+    <string name="signin_key">密码</string>
+    <string name="signin_button">登录</string>
+    <string name="signin_picdescribe">头像</string>
 </resources>

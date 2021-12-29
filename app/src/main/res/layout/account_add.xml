@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center">
-
+<!-- 一开始时间框放在最上面，但是这样子输入时看不到下面的输入框了，只能放下面-->
     <DatePicker
         android:id="@+id/choose_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/write_data"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
@@ -20,7 +20,6 @@
         android:id="@+id/write_typename"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/choose_date"
         android:hint="@string/add_hint_typename"
         android:padding="5dp"
         android:textSize="20sp"/>

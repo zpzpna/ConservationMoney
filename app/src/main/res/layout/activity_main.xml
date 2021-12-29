@@ -63,6 +63,7 @@
         android:background="@color/add_delete_record"
         android:text="@string/delete_all_record"
         android:textColor="@color/textblue" />
+
     <TextView
         android:id="@+id/main_mid_text"
         android:layout_width="match_parent"

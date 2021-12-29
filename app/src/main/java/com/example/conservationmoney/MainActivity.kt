@@ -4,6 +4,7 @@ package com.example.conservationmoney
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.DialogInterface
+import android.content.Intent
 import android.database.Cursor
 import android.os.Bundle
 import android.util.Log
@@ -22,12 +23,20 @@ class MainActivity : AppCompatActivity() {
     val AccountList = ArrayList<AccountList>()
     //构造一个空的记账列表用于下面初始化时塞入数据库数据以及返回给我们写的适配器来作为数据源
     val dbHelper = MyDatabaseHelper(this, "AccountTable.db", 1)
-    //全局声明，下面从数据库取数据要用
+
+    //用来标记转入登陆界面次数，只能转入一次，不然即使输入密码也会疯狂转入登录
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        //启动时自动调入登陆界面
+        //设置登陆界面发现他会无限循环登录，因为登录活动挑来主活动，运行主活动跳转又跳回登陆界面
+        //因此我在登录活动设置了一个count，默认为0，启动时主活动跳过去+1，登陆后由于count=1，不再跳转，解决问题
+        if(SigninActivity.count == 0) {
+            SigninActivity.count+=1
+            val intent = Intent(this, SigninActivity::class.java)
+            startActivity(intent)
+        }
         //数据库部分
         //每次启动时都会自动检索是否有存记账表的库，没有就创
         //创的同时会执行我们写的SQL建表语句
