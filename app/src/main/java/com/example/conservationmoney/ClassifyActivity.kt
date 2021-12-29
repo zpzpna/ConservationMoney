@@ -1,17 +1,14 @@
 package com.example.conservationmoney
 
-import android.content.ContentValues
 import android.content.DialogInterface
 import android.database.Cursor
-import android.graphics.Insets.add
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
-import android.widget.TextView
+import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -54,8 +51,8 @@ class ClassifyActivity : AppCompatActivity() {
 
         //设置按钮可以改变时间,但是注意，如果再一次使用上面的对话框的布局，首先show会报错，就算使用新的变量名
         //索引对应的布局，之后对话框选择的日期并不会替换一开始选择的日期，因此重新制作一个对话框布局，重新索引，这样就不会重复了
-        val transfer_button:Button = findViewById(R.id.choose_date_button)
-        transfer_button.setOnClickListener {
+        val transfer_time_button:Button = findViewById(R.id.choose_date_button)
+        transfer_time_button.setOnClickListener {
             //索引新的布局
             val rechoose_count_view:View =LayoutInflater.from(this).inflate(R.layout.recount_time,null)
             val rechoose_count_datapicker:DatePicker = rechoose_count_view.findViewById(R.id.time_count_rechoose)
@@ -64,6 +61,7 @@ class ClassifyActivity : AppCompatActivity() {
                 setTitle("选择查询时间")
                 setCancelable(false)
                 setPositiveButton("确定", DialogInterface.OnClickListener { _, _ ->
+                    //清空先前索引到的内容，然后将新索引到的内容放入列表
                     CountList.clear()
                     init_count_data(rechoose_count_datapicker)
                     Count_adapter.notifyDataSetChanged()
@@ -73,12 +71,52 @@ class ClassifyActivity : AppCompatActivity() {
                 show()
             }
         }
+        //根据类型统计的按钮的按钮
+        val transfer_data_button:Button = findViewById(R.id.choose_type_button)
+        transfer_data_button.setOnClickListener {
+            //索引新的布局
+            val rechoose_count_view:View = LayoutInflater.from(this).inflate(R.layout.recount_type,null)
+            val rechoose_count_type:EditText = rechoose_count_view.findViewById(R.id.recount_type)
+            AlertDialog.Builder(this).apply {
+                setView(rechoose_count_view)
+                setTitle("输入查询类型")
+                setCancelable(false)
+                setPositiveButton("确定", DialogInterface.OnClickListener { _, _ ->
+                    CountList.clear()
+                    init_count_data(rechoose_count_type)
+                    Count_adapter.notifyDataSetChanged()
+                })
+                setNegativeButton("取消", DialogInterface.OnClickListener { _, _ ->})
+                //再一次使用show（）会报错，因为使用的是上一次的对话框的view需要释放
+                show()
+            }
+        }
     }
+    //用来查询日期统计，从数据库提取数据初始化
     fun init_count_data(date:DatePicker){
         val db = dbHelper.writableDatabase
         //由于query直接搜索年月日三个变量不太会用，使用SQL语句搜索
         val cursor: Cursor? =db.rawQuery("select * from List where date=? order by id desc"
             ,arrayOf(date.year.toString() +"-"+ date.month.toString() +"-"+ date.dayOfMonth.toString()))
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    val CountList_dbsorce = AccountList(cursor.getString(cursor.getColumnIndexOrThrow("typename")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("date")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("data")))
+
+                    CountList.add(CountList_dbsorce)
+                } while (cursor.moveToNext())
+            }
+            cursor.close()
+        }
+    }
+    //用来查询类型统计，从数据库提取数据初始化
+    fun init_count_data(typename:EditText){
+        val db = dbHelper.writableDatabase
+        //由于query直接搜索年月日三个变量不太会用，使用SQL语句搜索
+        val cursor: Cursor? =db.rawQuery("select * from List where typename=? order by id desc"
+            ,arrayOf(typename.text.toString()))
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {

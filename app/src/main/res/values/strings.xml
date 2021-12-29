@@ -15,4 +15,6 @@
     <string name="classify_count_choose_hint">输入要查找的类型</string>
     <string name="time_count_button">re:时间统计</string>
     <string name="count_transfer">时间统计</string>
+    <string name="type_count_button">re:类别统计</string>
+    <string name="recount_data_hint">请输入类型</string>
 </resources>

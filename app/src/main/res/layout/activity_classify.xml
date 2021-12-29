@@ -36,4 +36,15 @@
         android:text="@string/time_count_button"
         android:textColor="@color/textblue"
         />
+    <Button
+        android:id="@+id/choose_type_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/choose_date_button"
+        android:layout_margin="10dp"
+        android:background="@color/add_delete_record"
+        android:text="@string/type_count_button"
+        android:textColor="@color/textblue"
+        />
 </RelativeLayout>
