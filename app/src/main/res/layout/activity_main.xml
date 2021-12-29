@@ -37,12 +37,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/add_record"
+        android:layout_alignParentEnd="true"
+        android:background="@color/add_delete_record"
         android:text="@string/add_record"
         android:layout_margin="10dp"
         android:textColor="@color/textblue"/>
 
+    <Button
+        android:id="@+id/consume_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/add_record"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:background="@color/add_delete_record"
+        android:text="@string/consume_record"
+        android:textColor="@color/textblue" />
+    <Button
+        android:id="@+id/delete_all_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/consume_record"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:background="@color/add_delete_record"
+        android:text="@string/delete_all_record"
+        android:textColor="@color/textblue" />
     <TextView
         android:id="@+id/main_mid_text"
         android:layout_width="match_parent"

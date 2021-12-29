@@ -21,8 +21,4 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
 
     }
-    fun getInitData(): Cursor? {
-        val database = writableDatabase
-        return database.query("list", null, null, null, null, null, "data ASC")
-    }
-    }
+}

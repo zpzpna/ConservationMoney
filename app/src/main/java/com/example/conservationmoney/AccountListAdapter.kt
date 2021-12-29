@@ -24,9 +24,9 @@ class AccountListAdapter(val AccountList: List<AccountList>) :
     //最后使用position定位此时AccountList中某一个实例
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val Account = AccountList[position]
-        holder.typename.text = Account.gettypename()
-        holder.data.text = Account.getdata()
-        holder.date.text = Account.getdate()
+        holder.typename.text = Account.typename
+        holder.data.text = Account.data
+        holder.date.text = Account.date
     }
     //计数AccountList列表个数
     override fun getItemCount() = AccountList.size

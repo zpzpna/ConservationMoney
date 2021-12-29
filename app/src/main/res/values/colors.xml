@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="skyblue">#CCCCFF</color> <!--浅蓝灰 主界面-->
-    <color name="add_record">#FFFFFF</color><!--白色 右下按钮-->
+    <color name="add_delete_record">#FFFFFF</color><!--白色 右下按钮-->
     <color name="textblue">#66CCFF</color> <!--浅蓝色 按钮-->
     <color name="listview_row">#CCCCCC</color>
 </resources>
