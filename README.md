@@ -1,2 +1,2 @@
 # ConservationMoney
-This is a final assignment for android course in NUFE
+This is an android final assignment of wzp from computer class 1902 of NUFE
