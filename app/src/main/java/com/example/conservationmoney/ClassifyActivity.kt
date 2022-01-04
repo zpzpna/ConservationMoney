@@ -97,7 +97,7 @@ class ClassifyActivity : AppCompatActivity() {
         val db = dbHelper.writableDatabase
         //由于query直接搜索年月日三个变量不太会用，使用SQL语句搜索
         val cursor: Cursor? =db.rawQuery("select * from List where date=? order by id desc"
-            ,arrayOf(date.year.toString() +"-"+ date.month.toString() +"-"+ date.dayOfMonth.toString()))
+            ,arrayOf(date.year.toString() +"-"+ (date.month+1).toString() +"-"+ date.dayOfMonth.toString()))
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {

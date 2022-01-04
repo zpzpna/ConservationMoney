@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                         //androidx.emoji2.text.SpannableBuilder cannot be cast to java.lang.String
                         typename.text.toString(),
                         date.year.toString()+ "-" +
-                                date.month.toString()+ "-" +
+                                (date.month+1).toString()+ "-" +
                                 date.dayOfMonth.toString(),
                         "收入：" + data.text.toString()
                     )
@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                         //androidx.emoji2.text.SpannableBuilder cannot be cast to java.lang.String
                         typename.text.toString(),
                         date.year.toString()+ "-" +
-                                date.month.toString()+ "-" +
+                                (date.month+1).toString()+ "-" +
                                 date.dayOfMonth.toString(),
                         "支出：" + data.text.toString()
                     )
